@@ -10,3 +10,6 @@ compile:
 
 flash:
 	teensy_loader_cli -w -v --mcu=$(KEYBOARD_MCU) $(KEYMAP_CWD)/../../../../.build/kinesis_kint41_$(KEYMAP_NAME).hex
+
+qmk-flash: 
+	qmk --verbose flash --keymap $(KEYMAP_NAME) --keyboard $(KEYBOARD_NAME)
