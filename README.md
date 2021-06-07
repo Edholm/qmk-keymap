@@ -2,7 +2,7 @@
 This is my [qmk](https://qmk.fm/) for my [Kinesis Advantage2](https://kinesis-ergo.com/keyboards/advantage2-keyboard/) that has been modded with 
 [Stapelberg's kint mod](https://github.com/kinx-project/kint). 
 
-_I usedd the Teensy 4.1 controller for my mod, which requires changes to the qmk-firmware that hasen't been merged upstream (at the time of writing this)
+_I used the Teensy 4.1 controller for my mod, which requires changes to the qmk-firmware that hasn't been merged upstream (at the time of writing this)_
 
 ## Requirements
 * [qmk-firmware](https://github.com/kinx-project/kint)
