@@ -202,6 +202,10 @@ void matrix_scan_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case M_HOME:
+	    // If shifted, remove shift since it crashes the computer otherwise....
+            if (get_mods() & MOD_MASK_SHIFT) {
+                del_mods(MOD_MASK_SHIFT);
+            }
             if (record->event.pressed) {
                 SEND_STRING("~/");
             }
