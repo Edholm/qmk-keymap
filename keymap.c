@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "keymap_swedish.h"
 #include "print.h"
+#include "sendstring_swedish.h"
 
 // Layer definitions
 enum layers {
@@ -202,8 +203,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case M_HOME:
             if (record->event.pressed) {
-                // Sends ~/ (in a swedish layout with nodeadkeys set)
-                SEND_STRING(SS_DOWN(X_RALT) SS_TAP(X_RBRC) SS_UP(X_RALT) SS_DOWN(X_LSFT) SS_TAP(X_7) SS_UP(X_LSFT));
+                SEND_STRING("~/");
             }
             break;
     }
