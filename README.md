@@ -6,11 +6,10 @@ _I used the Teensy 4.1 controller for my mod, which requires changes to the qmk-
 
 ## Requirements
 * [qmk-firmware](https://github.com/kinx-project/kint)
-  * I use [this fork](https://github.com/kinx-project/qmk_firmware/tree/kint41-upstream)
-* `qmk` (Python CLI tool)
-* `teensy_loader_cli` (You will probably need to compile it from src. The 2.1 version doesn't support the `TEENSY41` mcu. Check with `teensy_loader_cli --list-mcus`)
+* `qmk` ([Python CLI tool](https://archlinux.org/packages/community/any/qmk/))
+* `teensy_loader_cli` (You will probably need to compile it from [src](https://aur.archlinux.org/packages/teensy-loader-cli-git/). The 2.1 version doesn't support the `TEENSY41` mcu. Check with `teensy_loader_cli --list-mcus`)
 * Build requirements:
-  * arm-none-eabi-gcc  (`brew install gcc-arm-embedded` on macos)
+  * arm-none-eabi-gcc  (`brew install gcc-arm-embedded` on macos, included in `qmk` dependencies on arch)
 
 ## How to use
 These steps will guide you to building qmk with this keymap and flashing it to a kint modded Advantage2.
@@ -31,7 +30,7 @@ Replace <name> with whatever you want to call the keymap
 ```shell
 cd <path-to-qmk-firmware>/
 git submodule update --init --recursive
-qmk compile --clean --keymap bobby --keyboard kinesis/kint41
+qmk compile --clean --keymap <name> --keyboard kinesis/kint41
 ```
 
 ### 3. Flash firmware
