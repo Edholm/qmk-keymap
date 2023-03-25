@@ -38,7 +38,7 @@ typedef struct {
     td_state_t state;
 } td_tap_t;
 
-td_state_t cur_dance(qk_tap_dance_state_t *state);
+td_state_t cur_dance(tap_dance_state_t *state);
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /**********************************************************************************************************************
@@ -67,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   *                                `----------------------'          `--------------------'
   */
   [_QWERTY] = LAYOUT_pretty(
-    DM_RSTP,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,         KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,  KC_SLCK,  KC_PAUS,  TG(_SYMBOLS),  DM_REC1,
+    DM_RSTP,  KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,         KC_F9,    KC_F10,   KC_F11,   KC_F12,   KC_PSCR,  KC_SCRL,  KC_PAUS,  TG(_SYMBOLS),  DM_REC1,
     SE_ACUT,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                                                                      KC_6,     KC_7,     KC_8,     KC_9,     KC_0,          SE_PLUS,
     KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                                                                      KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,          SE_ARNG,
     KC_ESC,   KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                                                                      KC_H,     KC_J,     KC_K,     KC_L,     SE_ODIA,       SE_ADIA,
@@ -83,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * Symbols layer
   *
   * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-  * │         │       │       │       │       │       │       │       │       │       │       │       │       │       │       │  RESET  │
+  * │         │       │       │       │       │       │       │       │       │       │       │       │       │       │       │BOOTLOAD │
   * │─────────┼───────┼───────┼───────┼───────┼───────┼───────────────────────────────┼───────┼───────┼───────┼───────┼───────┼─────────│
   * │         │       │       │       │       │       │                               │       │       │       │       │       │         │
   * │─────────┼───────┼───────┼───────┼───────┼───────┤                               ├───────┼───────┼───────┼───────┼───────┼─────────│
@@ -105,7 +105,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   */
   [_SYMBOLS] = LAYOUT_pretty(
   //  esc       f1        f2        f3        f4          f5        f6          f7        f8      |   f9         f10        f11        f12        prnt      sclck      pause      keypad   program
-    _______,  _______,  _______,  _______,  _______,   _______,   _______,    _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,  RESET,
+    _______,  _______,  _______,  _______,  _______,   _______,   _______,    _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,  QK_BOOT,
     _______,  _______,  _______,  _______,  _______,   _______,                                                                      _______,   _______,   _______,   _______,   _______,  _______,
     _______,  KC_TAB,   SE_UNDS,  SE_LBRC,  SE_RBRC,   SE_CIRC,                                                                      SE_EXLM,   SE_LABK,   SE_RABK,   SE_EQL,    SE_AMPR,  _______,
     _______,  SE_BSLS,  SE_SLSH,  SE_LCBR,  SE_RCBR,   SE_ASTR,                                                                      SE_QUES,   SE_LPRN,   SE_RPRN,   SE_MINS,   SE_COLN,  SE_AT,
@@ -120,7 +120,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * Macro layer
   *
   * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-  * │         │       │       │       │       │       │       │       │       │       │       │       │       │       │       │  RESET  │
+  * │         │       │       │       │       │       │       │       │       │       │       │       │       │       │       │BOOTLOAD │
   * │─────────┼───────┼───────┼───────┼───────┼───────┼───────────────────────────────┼───────┼───────┼───────┼───────┼───────┼─────────│
   * │         │ Acc0  │ Acc1  │ Acc2  │       │       │                               │       │       │       │       │       │         │
   * │─────────┼───────┼───────┼───────┼───────┼───────┤                               ├───────┼───────┼───────┼───────┼───────┼─────────│
@@ -142,7 +142,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   */
   [_MACRO] = LAYOUT_pretty(
   //  esc       f1        f2        f3        f4          f5        f6          f7        f8      |   f9         f10        f11        f12        prnt      sclck      pause      keypad   program
-    _______,  _______,  _______,  _______,  _______,   _______,   _______,    _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,  RESET,
+    _______,  _______,  _______,  _______,  _______,   _______,   _______,    _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,   _______,  QK_BOOT,
     _______,  KC_ACL0,  KC_ACL1,  KC_ACL2,  _______,   _______,                                                                      _______,   _______,   _______,   _______,   _______,  _______,
     _______,  _______,  _______,  _______,  _______,   _______,                                                                      _______,   _______,   _______,   _______,   _______,  _______,
     _______,  M_HOME,   _______,  _______,  _______,   _______,                                                                      KC_MS_L,   KC_MS_D,   KC_MS_U,   KC_MS_R,   _______,  _______,
@@ -157,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   *
   * Empty layer (useful for copy-pasting
   * ┌───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-  * │         │       │       │       │       │       │       │       │       │       │       │       │       │       │       │  RESET  │
+  * │         │       │       │       │       │       │       │       │       │       │       │       │       │       │       │BOOTLOAD │
   * │─────────┼───────┼───────┼───────┼───────┼───────┼───────────────────────────────┼───────┼───────┼───────┼───────┼───────┼─────────│
   * │         │       │       │       │       │       │                               │       │       │       │       │       │         │
   * │─────────┼───────┼───────┼───────┼───────┼───────┤                               ├───────┼───────┼───────┼───────┼───────┼─────────│
@@ -267,7 +267,7 @@ bool led_update_user(led_t led_state) {
  * For the third point, there does exist the 'TD_DOUBLE_SINGLE_TAP', however this is not fully tested
  *
  */
-td_state_t cur_dance(qk_tap_dance_state_t *state) {
+td_state_t cur_dance(tap_dance_state_t *state) {
     if (state->count == 1) {
         if (state->interrupted || !state->pressed) return TD_SINGLE_TAP;
             // Key has not been interrupted, but the key is still held. Means you want to send a 'HOLD'.
@@ -291,48 +291,48 @@ td_state_t cur_dance(qk_tap_dance_state_t *state) {
 }
 
 // Create an instance of 'td_tap_t' for the 'x' tap dance.
-static td_tap_t home_tap_state = {
-    .is_press_action = true,
-    .state = TD_NONE
-};
+// static td_tap_t home_tap_state = {
+//     .is_press_action = true,
+//     .state = TD_NONE
+// };
 
-void home_finished(qk_tap_dance_state_t *state, void *user_data) {
-    home_tap_state.state = cur_dance(state);
-    switch (home_tap_state.state) {
-        case TD_SINGLE_TAP: register_code(KC_LGUI); break;
-        case TD_SINGLE_HOLD: register_code(KC_LGUI); break;
-        case TD_DOUBLE_TAP: register_code(KC_HOME); break;
-        case TD_DOUBLE_HOLD: register_code(KC_HOME); break;
-            // Last case is for fast typing. Assuming your key is `f`:
-            // For example, when typing the word `buffer`, and you want to make sure that you send `ff` and not `Esc`.
-            // In order to type `ff` when typing fast, the next character will have to be hit within the `TAPPING_TERM`, which by default is 200ms.
+// void home_finished(qk_tap_dance_state_t *state, void *user_data) {
+//     home_tap_state.state = cur_dance(state);
+//     switch (home_tap_state.state) {
+//         case TD_SINGLE_TAP: register_code(KC_LGUI); break;
+//         case TD_SINGLE_HOLD: register_code(KC_LGUI); break;
+//         case TD_DOUBLE_TAP: register_code(KC_HOME); break;
+//         case TD_DOUBLE_HOLD: register_code(KC_HOME); break;
+//             // Last case is for fast typing. Assuming your key is `f`:
+//             // For example, when typing the word `buffer`, and you want to make sure that you send `ff` and not `Esc`.
+//             // In order to type `ff` when typing fast, the next character will have to be hit within the `TAPPING_TERM`, which by default is 200ms.
 
-        case TD_DOUBLE_SINGLE_TAP: tap_code(KC_HOME); register_code(KC_HOME); break;
-        case TD_NONE:
-        case TD_TRIPLE_HOLD:
-        case TD_TRIPLE_TAP:
-        case TD_UNKNOWN:
-            break;
-    }
-}
+//         case TD_DOUBLE_SINGLE_TAP: tap_code(KC_HOME); register_code(KC_HOME); break;
+//         case TD_NONE:
+//         case TD_TRIPLE_HOLD:
+//         case TD_TRIPLE_TAP:
+//         case TD_UNKNOWN:
+//             break;
+//     }
+// }
 
-void home_reset(qk_tap_dance_state_t *state, void *user_data) {
-    switch (home_tap_state.state) {
-        case TD_SINGLE_TAP: unregister_code(KC_LGUI); break;
-        case TD_SINGLE_HOLD: unregister_code(KC_LGUI); break;
-        case TD_DOUBLE_TAP: unregister_code(KC_HOME); break;
-        case TD_DOUBLE_HOLD: unregister_code(KC_HOME);
-        case TD_DOUBLE_SINGLE_TAP: unregister_code(KC_HOME);
-        case TD_NONE:
-        case TD_TRIPLE_HOLD:
-        case TD_TRIPLE_TAP:
-        case TD_UNKNOWN:
-            break;
-    }
-    home_tap_state.state = TD_NONE;
-}
+// void home_reset(qk_tap_dance_state_t *state, void *user_data) {
+//     switch (home_tap_state.state) {
+//         case TD_SINGLE_TAP: unregister_code(KC_LGUI); break;
+//         case TD_SINGLE_HOLD: unregister_code(KC_LGUI); break;
+//         case TD_DOUBLE_TAP: unregister_code(KC_HOME); break;
+//         case TD_DOUBLE_HOLD: unregister_code(KC_HOME);
+//         case TD_DOUBLE_SINGLE_TAP: unregister_code(KC_HOME);
+//         case TD_NONE:
+//         case TD_TRIPLE_HOLD:
+//         case TD_TRIPLE_TAP:
+//         case TD_UNKNOWN:
+//             break;
+//     }
+//     home_tap_state.state = TD_NONE;
+// }
 
-qk_tap_dance_action_t tap_dance_actions[] = {
+tap_dance_action_t tap_dance_actions[] = {
     // Tap once for Home, hold for win/super/rgui
     //[TD_HOME_WIN] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, home_finished, home_reset)
     [TD_HOME_WIN] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_HOME),
