@@ -6,6 +6,9 @@
 // Tap Dance definitions
 #define TAPPING_TERM 140
 
+// Caps Word
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+
 // LED pins
 #define LED_COMPOSE_PIN LINE_PIN24
 #define LED_SCROLL_LOCK_PIN LINE_PIN25
